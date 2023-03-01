@@ -1,1 +1,1 @@
-console.log( 'JavaScript Moderno - CRA' );
+import './bases/const-let';

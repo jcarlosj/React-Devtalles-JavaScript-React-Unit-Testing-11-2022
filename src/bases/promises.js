@@ -6,21 +6,41 @@
 
 import { getHeroById } from '../functions/heroes';
 
-// Se construyen a partir de un callback que recibe dos argumentos
-const promise = new Promise( function( resolve, reject ) {      
-    setTimeout( () => {
-        const heroe = getHeroById( 3 );
 
-        // Valida si existe el heroe
-        if( heroe ) 
-            resolve( heroe );   // Devuelve el heroe encontrado
-        else 
-            reject();           // Retorna el error al no encontrar el heroe
-        
-    }, 2000 );
-} );
+const getHeroByIdAsync = async ( id ) => {
+    // Se construyen a partir de un callback que recibe dos argumentos
+    return new Promise( function( resolve, reject ) {      
+        setTimeout( () => {
+            const heroe = getHeroById( id );
 
-promise
+            // Valida si existe el heroe
+            if( heroe ) 
+                resolve( heroe );   // Devuelve el heroe encontrado
+            else 
+                reject();           // Retorna el error al no encontrar el heroe
+            
+        }, 2000 );
+    } );
+}
+
+
+// Ejecutamos la funcion asincrona que contiene la promesa
+getHeroByIdAsync( 6 )
+    .then( ( response ) => {
+        console.group( `Then... promise` );
+        console.log( response );
+        console.groupEnd();
+    })
+    .catch( err => {
+        console.group( `Catch... promise` );
+        console.warn( err );
+        console.groupEnd();
+    })
+    .finally( () => {
+        console.info( `Finally... promise` );
+    });
+
+getHeroByIdAsync( 3 )
     .then( ( response ) => {
         console.group( `Then... promise` );
         console.log( response );

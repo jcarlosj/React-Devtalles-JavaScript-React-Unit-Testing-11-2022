@@ -3,4 +3,5 @@
 // import './bases/literal-objects';
 // import './bases/arrays';
 // import './bases/functions';
-import './bases/destructuring-objects';
+// import './bases/destructuring-objects';
+import './bases/destructuring-arrays';

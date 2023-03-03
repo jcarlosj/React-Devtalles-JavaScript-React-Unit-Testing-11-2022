@@ -6,6 +6,9 @@ const heroes = [
     { id: 5, name: 'Wolverine', owner: 'Marvel' },
 ];
 
-export const owners = [ 'DComics', 'Marvel' ];
+const owners = [ 'DComics', 'Marvel' ];
 
-export default heroes;
+export {
+    heroes as default,
+    owners
+}

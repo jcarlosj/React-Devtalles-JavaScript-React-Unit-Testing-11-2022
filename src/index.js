@@ -6,4 +6,5 @@
 // import './bases/destructuring-objects';
 // import './bases/destructuring-arrays';
 // import './bases/import-export-files';
-import './bases/promises';
+// import './bases/promises';
+import './bases/fetch-api';

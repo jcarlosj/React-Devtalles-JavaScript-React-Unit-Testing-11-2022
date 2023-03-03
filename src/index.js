@@ -8,4 +8,5 @@
 // import './bases/import-export-files';
 // import './bases/promises';
 // import './bases/fetch-api';
-import './bases/async-await';
+// import './bases/async-await';
+import './bases/ternary-conditional';

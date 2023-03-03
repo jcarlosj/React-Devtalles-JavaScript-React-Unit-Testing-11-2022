@@ -2,27 +2,28 @@
 // https://developer.mozilla.org/es/docs/Web/API/Fetch_API
 
 const
-    apiKeyGiphy = 'AK2FcLXef3luWnplUP9M9aNmEc4L1cK2',
-    url = `https://api.giphy.com/v1/gifs/random?apiKey=${ apiKeyGiphy }`;
+    apiKeyGiphy = 'AK2FcLXef3luWnplUP9M9aNmEc4L1cK2';
     
 
 const getImage = async () => {
-    const
-        response = await fetch( url ),
-        data = await response.json();    
+    try {
+        const 
+            uri = `https://api.giphy.com/v1/gifs/random?apiKey=${ apiKeyGiphy }`,
+            response = await fetch( uri ),
+            { data } = await response.json();    
 
-        if( response.ok ) {
-            const { url } = data.data.images.original;
-            console.log( url );
+        const { url } = data.images.original;
+        console.log( url );
 
-            const img = document.createElement( 'img' );
+        const img = document.createElement( 'img' );
 
-            img.src = url;
-            document.body.append( img );
-        }
-        else {
-            console.warn( 'Failed to fetch' );
-        }
+        img.src = url;
+        document.body.append( img );
+    } catch (error) {
+        console.error( 'Failed to fetch', error );
+        // Se podria cargar una imagen por defecto
+    }
+        
 }
 
 getImage();

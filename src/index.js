@@ -5,4 +5,5 @@
 // import './bases/functions';
 // import './bases/destructuring-objects';
 // import './bases/destructuring-arrays';
-import './bases/import-export-files';
+// import './bases/import-export-files';
+import './bases/promises';

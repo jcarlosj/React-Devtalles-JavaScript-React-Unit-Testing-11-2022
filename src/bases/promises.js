@@ -17,40 +17,23 @@ const getHeroByIdAsync = async ( id ) => {
             if( heroe ) 
                 resolve( heroe );   // Devuelve el heroe encontrado
             else 
-                reject();           // Retorna el error al no encontrar el heroe
+                reject( 'No se pudo encontrar el heroe' );           // Retorna el error al no encontrar el heroe
             
         }, 2000 );
     } );
 }
 
 
-// Ejecutamos la funcion asincrona que contiene la promesa
-getHeroByIdAsync( 6 )
-    .then( ( response ) => {
-        console.group( `Then... promise` );
-        console.log( response );
-        console.groupEnd();
-    })
-    .catch( err => {
-        console.group( `Catch... promise` );
-        console.warn( err );
-        console.groupEnd();
-    })
-    .finally( () => {
-        console.info( `Finally... promise` );
-    });
+const ids = [ 3, 6, 1 ];
 
-getHeroByIdAsync( 3 )
-    .then( ( response ) => {
-        console.group( `Then... promise` );
-        console.log( response );
-        console.groupEnd();
-    })
-    .catch( err => {
-        console.group( `Catch... promise` );
-        console.warn( err );
-        console.groupEnd();
-    })
+ids.forEach( ( id ) => {
+    // Ejecutamos la funcion asincrona que contiene la promesa
+    getHeroByIdAsync( id )
+    .then( console.log )
+    .catch( console.warn )
     .finally( () => {
         console.info( `Finally... promise` );
     });
+});
+
+

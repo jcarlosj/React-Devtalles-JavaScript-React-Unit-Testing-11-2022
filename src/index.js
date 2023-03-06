@@ -5,6 +5,7 @@ import App from './components/HelloWorldApp';
 import '../src/styles.css';
 
 const message = 'This is my first app.';
+const person = { name: 'Juan Carlos', age: 45 };
 
 
 ReactDOM.createRoot(
@@ -12,8 +13,9 @@ ReactDOM.createRoot(
 ).render(
     <React.StrictMode>
         <App 
-            name = 'Juan Carlos'
-            message={ message } 
+            title = ''
+            person = { person }
+            message = { message } 
         />
     </React.StrictMode>
 );

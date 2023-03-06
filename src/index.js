@@ -11,6 +11,6 @@ ReactDOM.createRoot(
     document.getElementById( 'root' )
 ).render(
     <React.StrictMode>
-        <App title='App Component' person={ person } />
+        <App person={ person } />
     </React.StrictMode>
 );

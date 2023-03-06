@@ -17,5 +17,9 @@ App.propTypes = {
     person: PropTypes.object.isRequired
 }
 
+App.defaultProps = {
+    title: 'There is not title'
+}
+
 
 export default App;

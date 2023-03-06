@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import App from './components/HelloWorldApp';
+import '../src/styles.css';
 
 
 ReactDOM.createRoot(

@@ -1,12 +1,19 @@
-// import './bases/const-let';
-// import './bases/template-strings';
-// import './bases/literal-objects';
-// import './bases/arrays';
-// import './bases/functions';
-// import './bases/destructuring-objects';
-// import './bases/destructuring-arrays';
-// import './bases/import-export-files';
-// import './bases/promises';
-// import './bases/fetch-api';
-// import './bases/async-await';
-import './bases/ternary-conditional';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+
+// Functional Component
+function App() {
+    return (
+        <h1>Hello, World!</h1>
+    )
+}
+
+
+ReactDOM.createRoot(
+    document.getElementById( 'root' )
+).render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+);

@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import App from './components/HelloWorldApp';
+// import App from './components/HelloWorldApp';
+import CounterApp from './components/CounterApp';
 import '../src/styles.css';
-
-const person = { name: 'Juan Carlos', age: 45 };
 
 
 ReactDOM.createRoot(
     document.getElementById( 'root' )
 ).render(
     <React.StrictMode>
-        <App person={ person } />
+        {/* <App person={ person } /> */}
+        <CounterApp value={ 9 } />
     </React.StrictMode>
 );

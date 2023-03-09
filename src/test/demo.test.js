@@ -1,6 +1,12 @@
-// Definimos una prueba demo
-test( 'Demo: Esta prueba no puede fallar', () => {
-    // eslint-disable-next-line no-self-compare
-    if( 0 === 1 )
-        throw new Error( 'No se puede dividir entre cero' );
+describe( 'Demo', () => { 
+    test( 'deben ser dos cadenas de texto iguales', () => {
+        // 1. Inicialización
+        const originalMessage = 'Hola Mundo';
+    
+        // 2. Estímulo
+        const testMessage = 'Hola Mundo';
+    
+        // 3. Probar: Observar el comportamiento... esperado
+        expect( originalMessage ).toBe( testMessage );
+    });
 });

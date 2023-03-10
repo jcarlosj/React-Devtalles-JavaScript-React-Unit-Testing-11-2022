@@ -1,6 +1,6 @@
 import { getGreeting } from '../../bases/template-strings';
 
-describe( 'Test: directorio ./src/bases', () => { 
+describe( 'Test: template-string', () => { 
     const name = 'Juan';    // 1. Inicialización
 
     test( `getGreeting debe retornar "Hola, ${ name }!"`, () => {

@@ -22,7 +22,7 @@ describe( 'Test: destructuring-objects', () => {
 
         const user = useContext( testUser );
 
-        console.log( user );
+        // console.log( user );
 
         expect( user ).toStrictEqual({ 
             sobrenombre: 'jhonny',

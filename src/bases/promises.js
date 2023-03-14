@@ -7,7 +7,7 @@
 import { getHeroById } from '../functions/heroes';
 
 
-const getHeroByIdAsync = async ( id ) => {
+export const getHeroByIdAsync = async ( id ) => {
     // Se construyen a partir de un callback que recibe dos argumentos
     return new Promise( function( resolve, reject ) {      
         setTimeout( () => {
@@ -17,23 +17,9 @@ const getHeroByIdAsync = async ( id ) => {
             if( heroe ) 
                 resolve( heroe );   // Devuelve el heroe encontrado
             else 
-                reject( 'No se pudo encontrar el heroe' );           // Retorna el error al no encontrar el heroe
+                reject( 'No se pudo encontrar el héroe con ID ' + id );           // Retorna el error al no encontrar el heroe
             
-        }, 2000 );
+        }, 1000 );
     } );
 }
-
-
-const ids = [ 3, 6, 1 ];
-
-ids.forEach( ( id ) => {
-    // Ejecutamos la funcion asincrona que contiene la promesa
-    getHeroByIdAsync( id )
-    .then( console.log )
-    .catch( console.warn )
-    .finally( () => {
-        console.info( `Finally... promise` );
-    });
-});
-
 

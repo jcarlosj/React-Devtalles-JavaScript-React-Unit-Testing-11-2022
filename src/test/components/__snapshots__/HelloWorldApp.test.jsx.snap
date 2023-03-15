@@ -8,6 +8,9 @@ exports[`Test <App /> debe hacer "match" con el "snapshot" 1`] = `
   <h4>
     Sub-titulo del componente
   </h4>
+  <h4>
+    Sub-titulo del componente
+  </h4>
   <p />
 </div>
 `;

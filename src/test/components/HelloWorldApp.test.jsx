@@ -69,14 +69,14 @@ describe( 'Test <App />', () => {
     });
 
 
-    test( 'debe mostrar el "subTitle" enviado por "props"', () => {
+    test( 'debe mostrar 2 "subTitle" enviado por "props"', () => {
         const
             title = 'Hola, soy Juan',
             subTitle = 'Sub-titulo del componente',
             person = {}; 
 
         // render: renderiza el componente en memoria.
-        const { getByText } = render( 
+        const { getAllByText } = render( 
             <App 
                 title={ title }
                 subTitle={ subTitle } 
@@ -85,7 +85,7 @@ describe( 'Test <App />', () => {
         );
         
         // Asercion que el titulo se renderice dentro de un elemento <h1> (usando Testing Library). Importante hacer pruebas flexibles en este caso esto deberia evitarse
-        expect( getByText( subTitle ) ).toBeTruthy();
+        expect( getAllByText( subTitle ).length ).toBe( 2 );
         
     });
 

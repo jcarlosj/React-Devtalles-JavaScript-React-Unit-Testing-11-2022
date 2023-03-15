@@ -7,6 +7,7 @@ function App({ title, subTitle, person }) {
         <>
             <h1 data-testid="test-title">{ title }</h1>
             <h4>{ subTitle }</h4>
+            <h4>{ subTitle }</h4>
             {/* <code>{ JSON.stringify( person ) }</code> */}
             <p>{ person.name }</p>
         </>

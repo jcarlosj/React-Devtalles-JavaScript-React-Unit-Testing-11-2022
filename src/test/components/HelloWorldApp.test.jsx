@@ -16,7 +16,7 @@ describe( 'Test <App />', () => {
 
     });
 
-    test( 'debe mostrar el "title" (cualquiera) en un <h1>', () => {
+    test( 'debe mostrar el "title" (cualquiera) en un <h1> (Usando JavaScript)', () => {
         const
             title = 'Hola, soy Juan',
             person = {};
@@ -29,9 +29,22 @@ describe( 'Test <App />', () => {
         
         // Asercion que el titulo se renderice dentro de un elemento <h1> (usando JavaScript). Importante hacer pruebas flexibles en este caso esto deberia evitarse
         const h1 = container.querySelector( 'h1' );
-        expect( h1.innerHTML ).toBe( title );
-        expect( h1.innerHTML ).toContain( title );
+        expect( h1.innerHTML ).toBe( title );           // toBe: Identicos, mismo tipo, mismos caracteres, mismo casign
+        expect( h1.innerHTML ).toContain( title );      // toContain: no importa si tiene espacios o letras antes o despues debe contener este string
 
+    });
+
+    test( 'debe mostrar el "title" (cualquiera) en un <h1> (Usando Testing Library)', () => {
+        const
+            title = 'Hola, soy Juan',
+            person = {};
+
+        // render: renderiza el componente en memoria.
+        const { getByTestId } = render( <App title={ title } person={ person } /> );
+        
+        // Asercion que el titulo se renderice dentro de un elemento <h1> (usando Testing Library). Importante hacer pruebas flexibles en este caso esto deberia evitarse
+        expect( getByTestId( 'test-title' ).innerHTML ).toBe( title );
+        
     });
 
 });

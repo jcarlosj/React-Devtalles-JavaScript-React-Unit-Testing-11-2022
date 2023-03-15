@@ -2,7 +2,9 @@
 
 exports[`Test <App /> debe hacer "match" con el "snapshot" 1`] = `
 <div>
-  <h1 />
+  <h1
+    data-testid="test-title"
+  />
   <p />
 </div>
 `;

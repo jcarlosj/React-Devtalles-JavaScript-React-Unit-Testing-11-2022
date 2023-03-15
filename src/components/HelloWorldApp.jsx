@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function App({ title, person }) {
     return (
         <>
-            <h1>{ title }</h1>
+            <h1 data-testid="test-title">{ title }</h1>
             {/* <code>{ JSON.stringify( person ) }</code> */}
             <p>{ person.name }</p>
         </>

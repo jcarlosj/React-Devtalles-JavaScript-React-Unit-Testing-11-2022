@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "react-test-renderer": "^18.2.0",
     "whatwg-fetch": "^3.6.2"
   }
 }

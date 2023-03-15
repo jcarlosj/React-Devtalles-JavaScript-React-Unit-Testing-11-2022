@@ -6,7 +6,8 @@ function App({ title, person }) {
     return (
         <>
             <h1>{ title }</h1>
-            <code>{ JSON.stringify( person ) }</code>
+            {/* <code>{ JSON.stringify( person ) }</code> */}
+            <p>{ person.name }</p>
         </>
     )
 }

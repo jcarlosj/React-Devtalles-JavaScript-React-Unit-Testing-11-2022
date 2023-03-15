@@ -7,10 +7,17 @@ describe( 'Test <App />', () => {
     test( 'debe hacer "match" con el "snapshot"', () => {
         const
             title = '',
+            subTitle = 'Sub-titulo del componente',
             person = {};
 
         // render: renderiza el componente en memoria.
-        const { container } = render( <App title={ title } person={ person } /> );
+        const { container } = render(
+            <App 
+                title={ title }
+                subTitle={ subTitle } 
+                person={ person } 
+            /> 
+        );
         
         expect( container ).toMatchSnapshot();
 
@@ -19,10 +26,17 @@ describe( 'Test <App />', () => {
     test( 'debe mostrar el "title" (cualquiera) en un <h1> (Usando JavaScript)', () => {
         const
             title = 'Hola, soy Juan',
+            subTitle = 'Sub-titulo del componente',
             person = {};
 
         // render: renderiza el componente en memoria.
-        const { container, getByText } = render( <App title={ title } person={ person } /> );
+        const { container, getByText } = render(
+            <App 
+                title={ title }
+                subTitle={ subTitle } 
+                person={ person } 
+            /> 
+        );
         
         // Asercion: que el titulo se renderice al menos una vez sin importar sin hacer match de contenido
         expect( getByText( title ) ).toBeTruthy();     // toBeTruthy: cuando no le importe cuál es un valor y quiera asegurarse de que un valor sea verdadero en un contexto booleano. 
@@ -37,13 +51,41 @@ describe( 'Test <App />', () => {
     test( 'debe mostrar el "title" (cualquiera) en un <h1> (Usando Testing Library)', () => {
         const
             title = 'Hola, soy Juan',
+            subTitle = 'Sub-titulo del componente',
             person = {};
 
         // render: renderiza el componente en memoria.
-        const { getByTestId } = render( <App title={ title } person={ person } /> );
+        const { getByTestId } = render(
+            <App 
+                title={ title }
+                subTitle={ subTitle } 
+                person={ person } 
+            /> 
+        );
         
         // Asercion que el titulo se renderice dentro de un elemento <h1> (usando Testing Library). Importante hacer pruebas flexibles en este caso esto deberia evitarse
         expect( getByTestId( 'test-title' ).innerHTML ).toBe( title );
+        
+    });
+
+
+    test( 'debe mostrar el "subTitle" enviado por "props"', () => {
+        const
+            title = 'Hola, soy Juan',
+            subTitle = 'Sub-titulo del componente',
+            person = {}; 
+
+        // render: renderiza el componente en memoria.
+        const { getByText } = render( 
+            <App 
+                title={ title }
+                subTitle={ subTitle } 
+                person={ person } 
+            /> 
+        );
+        
+        // Asercion que el titulo se renderice dentro de un elemento <h1> (usando Testing Library). Importante hacer pruebas flexibles en este caso esto deberia evitarse
+        expect( getByText( subTitle ) ).toBeTruthy();
         
     });
 

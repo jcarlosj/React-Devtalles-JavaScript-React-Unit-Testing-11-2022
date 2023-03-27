@@ -28,16 +28,19 @@ const CounterApp = ({ value }) => {
             <h2> { counter } </h2>
             <button
                 onClick={ handleAdd }
+                aria-label='btn-counter-add'
             >
                 +1 
             </button>
             <button
                 onClick={ handleSubstract }
+                aria-label='btn-counter-substract'
             >
                 -1 
             </button>
             <button
                 onClick={ handleReset }
+                aria-label='btn-counter-reset'
             >
                 reset
             </button>

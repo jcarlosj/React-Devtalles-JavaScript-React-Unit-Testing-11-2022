@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import CounterApp from "../../components/CounterApp";
 
 
@@ -31,4 +31,34 @@ describe( 'Test: <CounterApp />', () => {
         ).toEqual( 100 );
     });
 
+    test( 'debe incrementar con el botón +1', () => {
+        render( <CounterApp value={ initialValue } /> );
+
+        fireEvent.click( screen.getByText( '+1' ) );        // Simula el evento click sobre el elemento que tenga el texto '+1'
+        // screen.debug();
+        expect( screen.getByText( '10' ) ).toBeTruthy();
+    });
+
+    test( 'debe decrementar con el botón -1', () => {
+        render( <CounterApp value={ initialValue } /> );
+
+        fireEvent.click( screen.getByText( '-1' ) );        // Simula el evento click sobre el elemento que tenga el texto '+1'
+        // screen.debug();
+        expect( screen.getByText( '8' ) ).toBeTruthy();
+    });
+
+
+    test( 'debe reiniciar el valor con el botón "reset"', () => {
+        render( <CounterApp value={ initialValue } /> );
+
+        fireEvent.click( screen.getByText( '+1' ) );        // Simula el evento click sobre el elemento que tenga el texto '+1'
+        fireEvent.click( screen.getByText( '+1' ) );        // Simula el evento click sobre el elemento que tenga el texto '+1'
+        fireEvent.click( screen.getByText( '+1' ) );        // Simula el evento click sobre el elemento que tenga el texto '+1'
+
+        // screen.debug();
+        fireEvent.click( screen.getByText( 'reset' ) );        // Simula el evento click sobre el elemento que tenga el texto 'reset'
+
+        expect( screen.getByText( initialValue ) ).toBeTruthy();
+    });
+ 
 });

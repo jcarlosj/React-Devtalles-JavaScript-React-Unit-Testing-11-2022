@@ -49,14 +49,25 @@ describe( 'Test: <CounterApp />', () => {
 
 
     test( 'debe reiniciar el valor con el botón "reset"', () => {
+        const totalClicks = 3;
+
         render( <CounterApp value={ initialValue } /> );
 
-        fireEvent.click( screen.getByText( '+1' ) );        // Simula el evento click sobre el elemento que tenga el texto '+1'
-        fireEvent.click( screen.getByText( '+1' ) );        // Simula el evento click sobre el elemento que tenga el texto '+1'
-        fireEvent.click( screen.getByText( '+1' ) );        // Simula el evento click sobre el elemento que tenga el texto '+1'
+        // fireEvent.click( screen.getByText( '+1' ) );        // Simula el evento click sobre el elemento que tenga el texto '+1'
+        // fireEvent.click( screen.getByText( '+1' ) );        // Simula el evento click sobre el elemento que tenga el texto '+1'
+        // fireEvent.click( screen.getByText( '+1' ) );        // Simula el evento click sobre el elemento que tenga el texto '+1'
+
+        for ( let i = 0; i < totalClicks; i++ ) {
+            fireEvent.click(
+                screen.getByRole( 'button', { name: 'btn-counter-add' } )
+            );
+        }
 
         // screen.debug();
-        fireEvent.click( screen.getByText( 'reset' ) );        // Simula el evento click sobre el elemento que tenga el texto 'reset'
+        // fireEvent.click( screen.getByText( 'reset' ) );        // Simula el evento click sobre el elemento que tenga el texto 'reset'
+        fireEvent.click(
+            screen.getByRole( 'button', { name: 'btn-counter-reset' } )
+        );
 
         expect( screen.getByText( initialValue ) ).toBeTruthy();
     });

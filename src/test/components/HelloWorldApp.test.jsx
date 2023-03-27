@@ -1,14 +1,16 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from '../../components/HelloWorldApp';
 
 
 describe( 'Test <App />', () => {
+    // Define todos los valores para las pruebas
+    const
+        title = 'Hola, soy Juan',
+        subTitle = 'Sub-titulo del componente',
+        person = {};
+
     
     test( 'debe hacer "match" con el "snapshot"', () => {
-        const
-            title = '',
-            subTitle = 'Sub-titulo del componente',
-            person = {};
 
         // render: renderiza el componente en memoria.
         const { container } = render(
@@ -24,10 +26,6 @@ describe( 'Test <App />', () => {
     });
 
     test( 'debe mostrar el "title" (cualquiera) en un <h1> (Usando JavaScript)', () => {
-        const
-            title = 'Hola, soy Juan',
-            subTitle = 'Sub-titulo del componente',
-            person = {};
 
         // render: renderiza el componente en memoria.
         const { container, getByText } = render(
@@ -48,11 +46,21 @@ describe( 'Test <App />', () => {
 
     });
 
+    test( 'debe mostrar el titulo "Hola, soy Juan" (usando screen)', () => {
+
+        render(
+            <App 
+                title={ title }
+                subTitle={ subTitle } 
+                person={ person } 
+            />
+        );
+        // screen.debug();  // Nos permite ver el objeto sin usar el container
+
+        expect( screen.getByText( title ) ).toBeTruthy();
+    });
+
     test( 'debe mostrar el "title" (cualquiera) en un <h1> (Usando Testing Library)', () => {
-        const
-            title = 'Hola, soy Juan',
-            subTitle = 'Sub-titulo del componente',
-            person = {};
 
         // render: renderiza el componente en memoria.
         const { getByTestId } = render(
@@ -69,11 +77,20 @@ describe( 'Test <App />', () => {
     });
 
 
+    test( 'debe mostrar el "title" en un <h1> (usando el screen)', () => {
+        render(
+            <App 
+                title={ title }
+                subTitle={ subTitle } 
+                person={ person } 
+            /> 
+        );
+
+        expect( screen.getByRole( 'heading', { level: 1 } ).innerHTML ).toContain( title );
+    });
+
+
     test( 'debe mostrar 2 "subTitle" enviado por "props"', () => {
-        const
-            title = 'Hola, soy Juan',
-            subTitle = 'Sub-titulo del componente',
-            person = {}; 
 
         // render: renderiza el componente en memoria.
         const { getAllByText } = render( 
@@ -87,6 +104,19 @@ describe( 'Test <App />', () => {
         // Asercion que el titulo se renderice dentro de un elemento <h1> (usando Testing Library). Importante hacer pruebas flexibles en este caso esto deberia evitarse
         expect( getAllByText( subTitle ).length ).toBe( 2 );
         
+    });
+
+
+    test( 'debe mostrar 2 "subTitle" enviado por "props" (usando screen)', () => {
+        render(
+            <App 
+                title={ title }
+                subTitle={ subTitle } 
+                person={ person } 
+            />
+        );
+
+        expect( screen.getAllByText( subTitle ).length ).toBe( 2 );
     });
 
 });
